@@ -1,1 +1,1 @@
-# Recruitment_job_search_MVC_Website
+Website tuyển dụng - tìm kiếm việc làm online bằng mô hình MVC kết hợp với C#
