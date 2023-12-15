@@ -1,0 +1,77 @@
+﻿@model PagedList.IPagedList<Project_Job.Models.CongViec>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.TenCongViec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MucLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiViec.TenLoaiViec)
+        </th>
+        <th></th>*@
+
+        <th style="width:200px">Tên Công Việc</th>
+        <th>Mức Lương</th>
+        <th>Mô Tả</th>
+        <th>Loại Việc</th>
+        <th>Sửa | Xem | Xóa</th>
+
+        <th></th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenCongViec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MucLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiViec.TenLoaiViec)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaCongViec }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaCongViec }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaCongViec })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<br />
+
+@*Thêm Phân Trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+new PagedListRenderOptions
+{
+UlElementClasses = new string[] { "pagination" }, // Add classes to the <ul> element
+LiElementClasses = new string[] { "page-item" }, // Add classes to the <li> elements
+
+
+})
+@*Kết Thúc Phân Trang*@

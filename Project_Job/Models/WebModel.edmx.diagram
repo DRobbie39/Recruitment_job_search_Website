@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0134d1de8e7b4970b800f6bf494a3c9e" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="QL_TuyenDung_TVLModel.CongTy" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_TuyenDung_TVLModel.CongViec" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_TuyenDung_TVLModel.LoaiViec" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_TuyenDung_TVLModel.NguoiDung" Width="1.5" PointX="1.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_TuyenDung_TVLModel.sysdiagram" Width="1.5" PointX="3.25" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="QL_TuyenDung_TVLModel.FK_CongTy_CongViec_MaCongViec" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_TuyenDung_TVLModel.FK_CongViec_LoaiViec_MaLoaiViec" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,546 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+
+
+    <div class="container-xxl py-5">
+        <div class="container d-flex" style="margin-left: 0px; margin-right: 0; max-width: 1620px">
+            <div>
+                <div class="box-filter p-4" style="margin-bottom: 24px; background: #f6faff; border-radius: 4px; text-align: start;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h4 class="m-0">Ngành nghề</h4>
+                        <button class="btn p-0" type="submit" style="color: #4CA6A8; border: none; font-size: 14px; font-weight: 400; text-decoration: underline; text-transform: capitalize;" >Lọc</button>
+                    </div>
+
+                    <div class="fillter">
+                        <div class="box-item mb-2">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCareer" onclick="funcProductlist('tab-1',this)" value=" ">
+                            <label>Tất cả</label>
+                        </div>
+                        <div class="box-item mb-2" style="width: max-content;" onclick="funcProductlist('kinhdoanh',this)">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCareer" value=" ">
+                            <label>Kinh doanh / Bán hàng</label>
+                        </div>
+                        <div class="box-item mb-2" style="width: max-content;" onclick="funcProductlist('buuchinh',this)">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCareer" value=" ">
+                            <label>Bưu chính / Viễn thông</label>
+                        </div>
+                        <div class="box-item mb-2" style="width: max-content;" onclick="funcProductlist('congnghe',this)">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCareer" value=" ">
+                            <label>Công nghệ cao</label>
+                        </div>
+                        <div class="box-item mb-2" style="width: max-content;" onclick="funcProductlist('dienlanh',this)">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCareer" value=" ">
+                            <label>Điện/ điện tử/ điện lạnh</label>
+                        </div>
+                        <div class="box-item mb-2" style="width: max-content;" onclick="funcProductlist('cntt',this)">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCareer" value=" ">
+                            <label>IT phần cứng/ mạng</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-filter p-4" style="margin-bottom: 24px; background: #f6faff; border-radius: 4px; text-align: start;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h4 class="m-0">Danh mục</h4>
+
+                    </div>
+
+                    <div class="fillter">
+                        <div class="box-item mb-2">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCategory" value="">
+                            <label>Tất cả</label>
+                        </div>
+
+                        <div class="box-item mb-2" style="width: max-content;">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCategory" value="">
+                            <label>Việc làm bán thời gian</label>
+                        </div>
+                        <div class="box-item mb-2" style="width: max-content;">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCategory" value="">
+                            <label>Việc làm toàn thời gian</label>
+                        </div>
+                        <div class="box-item mb-2" style="width: max-content;">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCategory" value="">
+                            <label>Việc làm Remote</label>
+                        </div>
+                        <div class="box-item mb-2" style="width: max-content;">
+                            <input type="checkbox" aria-label="Checkbox" aria-describedby="basic-addon2" name="fillterCategory" value="">
+                            <label>Việc làm theo dự án</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-filter p-4" style="margin-bottom: 24px; background: #f6faff; border-radius: 4px; text-align: start;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h4 class="m-0">Giới tính</h4>
+
+                    </div>
+
+                    <div class="fillter">
+                        <div class="box-item mb-2">
+                            <input type="radio" aria-label="RadioButton" aria-describedby="basic-addon2" name="fillterGender" value="">
+                            <label>Tất cả</label>
+                        </div>
+                        <div class="box-item mb-2">
+                            <input type="radio" aria-label="RadioButton" aria-describedby="basic-addon2" name="fillterGender" value="Nam">
+                            <label>Nam</label>
+                        </div>
+                        <div class="box-item mb-2">
+                            <input type="radio" aria-label="RadioButton" aria-describedby="basic-addon2" name="fillterGender" value="Nữ">
+                            <label>Nữ</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-filter p-4" style="margin-bottom: 24px; background: #f6faff; border-radius: 4px; text-align: start;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h4 class="m-0">Năm kinh nghiệm</h4>
+                        <button class="btn p-0" type="submit" style="color: #4CA6A8;border: none; font-size: 14px; font-weight: 400; text-decoration: underline; text-transform:capitalize;">Lọc</button>
+                    </div>
+
+                    <div class="fillter">
+                        <div class="box-item mb-2">
+                            <input type="radio" aria-label="RadioButton" aria-describedby="basic-addon2" name="fillterEXP" value="0">
+                            <label>Không yêu cầu</label>
+                        </div>
+                        <div class="box-item mb-2">
+                            <input type="radio" aria-label="RadioButton" aria-describedby="basic-addon2" name="fillterEXP" value="1">
+                            <label>1 năm kinh nghiệm</label>
+                        </div>
+                        <div class="box-item mb-2">
+                            <input type="radio" aria-label="RadioButton" aria-describedby="basic-addon2" name="fillterEXP" value="2">
+                            <label>2 năm kinh nghiệm</label>
+                        </div>
+                        <div class="box-item mb-2">
+                            <input type="radio" aria-label="RadioButton" aria-describedby="basic-addon2" name="fillterEXP" value="3">
+                            <label>3 năm kinh nghiệm</label>
+                        </div>
+                        <div class="box-item mb-2">
+                            <input type="radio" aria-label="RadioButton" aria-describedby="basic-addon2" name="fillterEXP" value="4">
+                            <label>4 năm kinh nghiệm</label>
+                        </div>
+                        <div class="box-item mb-2">
+                            <input type="radio" aria-label="RadioButton" aria-describedby="basic-addon2" name="fillterEXP" value="5">
+                            <label>Hơn 5 năm kinh nghiệm</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-left:18px;">
+                <div class="title d-flex">
+                    <h2 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" style="font-family: Inter,Arial,sans-serif !important; margin-bottom:0;margin-top:15px; font-size: 27px; color: rgb(51, 51, 51); ">Công ty nổi bật (250)</h2>
+                </div>
+
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s" >
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+
+                            <div class="row box d-flex justify-content-between mb-4" style="margin-top:30px">
+                                <div class="col row-item-company position-relative" id="cntt" >
+                                    <img class="background" src="~/Areas/Home/img/01.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo1.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">iTechwx Company Limited</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng. Với</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" id="kinhdoanh">
+                                    <img class="background" src="~/Areas/Home/img/02.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo2.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">Vitalify Asia</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" id="dienlanh"> 
+                                    <img class="background" src="~/Areas/Home/img/03.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo3.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">CHI NHÁNH HƯNG YÊN - DAIKIN VIE...</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" id="congnghe">
+                                    <img class="background" src="~/Areas/Home/img/04.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo4.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">United Overseas Bank (Vietnam) Limit...</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" id="buuchinh">
+                                    <img class="background" src="~/Areas/Home/img/05.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo5.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">CBRE VIETNAM LIMITED COMPANY</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" >
+                                    <img class="background" src="~/Areas/Home/img/06.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo6.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">PANASONIC VIETNAM CO., LTD</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" >
+                                    <img class="background" src="~/Areas/Home/img/01.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo1.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">iTechwx Company Limited</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng. Với</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" >
+                                    <img class="background" src="~/Areas/Home/img/02.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo2.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">Vitalify Asia</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" >
+                                    <img class="background" src="~/Areas/Home/img/03.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo3.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">CHI NHÁNH HƯNG YÊN - DAIKIN VIE...</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" >
+                                    <img class="background" src="~/Areas/Home/img/04.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo4.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">United Overseas Bank (Vietnam) Limit...</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative">
+                                    <img class="background" src="~/Areas/Home/img/05.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo5.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">CBRE VIETNAM LIMITED COMPANY</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col row-item-company position-relative" >
+                                    <img class="background" src="~/Areas/Home/img/06.jpg" alt="Backgroud">
+                                    <img class="avatar position-absolute" src="~/Areas/Home/img/logo6.jpg" alt="Avatar">
+                                    <div class="company-content position-absolute px-3" style="top: 154px">
+                                        <div class="box-name">
+                                            <a href="cong-ty/tiêu đề" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">PANASONIC VIETNAM CO., LTD</a>
+                                        </div>
+                                        <div class="box-description">
+                                            <p>
+                                                Công nghệ ngày càng phát triển nhanh chóng, mở ra không gian cho sự sáng tạo và đổi mới. Trong bối cảnh này, Công ty TNHH Công nghệ và Phát triển Đổi Mới đã trở thành một cái tên nổi bật trong lĩnh vực công nghệ thông tin và dịch vụ kỹ thuật.
+
+                                                Với mục tiêu mang đến những giải pháp hiệu quả và tiên tiến, Công ty TNHH Công nghệ và Phát triển Đổi Mới đang tập trung vào nghiên cứu và phát triển phần mềm đột phá, nhằm đáp ứng nhu cầu ngày càng cao của khách hàng.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <p>Xem Thêm...</p>
+                            <div class="pagination-container">
+                                <ul class="pagination">
+                                    <li class="active">
+                                        <a>1</a>
+                                    </li>
+                                    <li>
+                                        <a href="">2</a>
+                                    </li>
+                                    <li class="PagedList-skipToPrevious">
+                                        <a href="" rel="prev">»</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <style>
+                                p {
+                                    margin: 0;
+                                }
+
+                                .box-description, .box-name {
+                                    width: 380px;
+                                    height: 150px;
+                                    overflow: hidden;
+                                }
+
+                                .box-name {
+                                    height: max-content;
+                                    display: flex;
+                                }
+
+                                    .box-name a {
+                                        font-size: 15px;
+                                        font-weight: 800;
+                                        text-transform: uppercase;
+                                    }
+
+                                .py-5 {
+                                    padding-top: 3rem !important;
+                                    padding-bottom: 3rem !important;
+                                }
+
+                                .row-item-company {
+                                    min-width: 360px;
+                                    background-color: #FFF;
+                                    width: 32%;
+                                    height: 350px;
+                                    border-radius: 4px;
+                                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                                }
+
+                                    .row-item-company:hover {
+                                        cursor: pointer;
+                                        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                                    }
+
+
+
+                                    .row-item-company .avatar {
+                                        width: 70px;
+                                        height: 70px;
+                                        border-radius: 4px;
+                                        border: 1px solid #E7F0FA;
+                                        left: 12px;
+                                        top: calc(30% - 35px);
+                                    }
+
+                                    .row-item-company .company-content a {
+                                    }
+
+
+                                    .row-item-company .company-content a, .row-item-company .company-content p {
+                                        text-align: left;
+                                    }
+
+                                    .row-item-company .company-content p {
+                                        display: -webkit-box;
+                                        height: max-content;
+                                        -webkit-line-clamp: 6;
+                                        -webkit-box-orient: vertical;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                    }
+
+                                .pagination {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    height: 5rem;
+                                    margin: 3rem;
+                                    border-radius: 0.6rem;
+                                    background: #ffffff;
+                                    box-shadow: 0 0.8rem 2rem rgba(#5a6181, 0.05);
+                                }
+
+                                    .pagination li {
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        margin: 8px;
+                                        font-size: 14px;
+                                        cursor: pointer;
+                                        padding: 4px 8px !important;
+                                        border-radius: 8px;
+                                        font-weight: 700;
+                                        border-radius: 0.4rem;
+                                    }
+
+                                        .pagination li:hover a {
+                                            color: #4CA6A8;
+                                        }
+
+                                    .pagination .active {
+                                        color: #ffffff;
+                                        background: #4CA6A8;
+                                        font-weight: 600;
+                                        border: 1px solid #4CA6A8;
+                                    }
+
+                                    .pagination .PagedList-skipToPrevious, .pagination .PagedList-skipToNext {
+                                        color: #2B9BFF;
+                                        pointer-events: none;
+                                        font-size: 20px;
+                                    }
+
+                                .col {
+                                    margin: 12px;
+                                    padding: 0px;
+                                    font-family: "Nunito Sans";
+                                }
+
+                                .background {
+                                    height: 30%;
+                                    width: 100%;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="row g-0 about-bg rounded overflow-hidden">
+                        <div class="col-6 text-start">
+                            <img class="img-fluid w-100" src="~/Areas/Home/img/01.jpg">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid" src="~/Areas/Home/img/02.jpg" style="width: 85%; margin-top: 15%;">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid" src="~/Areas/Home/img/03.jpg" style="width: 85%;">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid w-100" src="~/Areas/Home/img/04.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="mb-4">Hỗ trợ tìm kiếm việc làm tốt nhất và ứng viên tiềm năng.</h1>
+                    <p class="mb-4">Tìm việc mơ ước dễ dàng - duyệt hàng nghìn việc làm và nộp đơn ngay hôm nay trên nền tảng tìm kiếm việc làm của chúng tôi.</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Hàng ngàn công việc khác nhau</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Kết nối doanh nghiệp dễ dàng</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Hoàn toàn miễn phí</p>
+                    <a class="btn btn-primary py-3 px-5 mt-3 btn-viewAll" href="">Xem thêm các bài viết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function searchfunc() {
+            function search() {
+                let menusearch = document.querySelector('#menu_search');
+                let menuitems = Array.from(document.querySelectorAll('.col'));
+                menusearch.value = menusearch.value.toUpperCase();
+
+                menuitems.forEach(function (el) {
+                    let text = el.innerText;
+                    if (text.indexOf(menusearch.value) > -1)
+                        el.style.display = "";
+                    else el.style.display = "none";
+                })
+            }
+            search();
+        }
+            function funcProductlist(type, element) {
+                document.getElementById(type).style.display = 'block';
+                switch (type) {
+                    case 'tab-1':
+                        document.getElementById('tab-1').style.display = 'block';
+                        break;
+                    case 'kinhdoanh':
+                        document.getElementById('tab-1').style.display = 'none';
+                        break;
+                    case 'buuchinh':
+                        document.getElementById('tab-1').style.display = 'none';
+                        break;
+                    case 'congnghe':
+                        document.getElementById('tab-1').style.display = 'none';
+                        break;
+                    case 'dienlanh':
+                        document.getElementById('tab-1').style.display = 'none';
+                        break;
+                    case 'cntt':
+                        document.getElementById('tab-1').style.display = 'none';
+                        break;
+                }
+            }
+    </script>
+</body>
+<style>
+    .tab-filter {
+        width: 25%;
+        margin-right: 12px;
+    }
+</style>
